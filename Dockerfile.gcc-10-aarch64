@@ -7,10 +7,10 @@ RUN apt update > /dev/null && apt install moreutils autoconf automake axel bc bi
     patch patchelf pkg-config python python-all-dev re2c schedtool squashfs-tools texinfo \
     unzip w3m xsltproc zip zlib1g-dev lzip libxml-simple-perl libisl-dev -y > /dev/null
 
-RUN echo "maestroci" > /etc/hostname
+RUN echo "triton" > /etc/hostname
 
-RUN git config --global user.name baalajimaestro 
-RUN git config --global user.email baalajimaestro@pixelexperience.org
+RUN git config --global user.name Thagoo
+RUN git config --global user.email lohitgowda56@gmail.com
 
 RUN mkdir /build
 
@@ -18,4 +18,4 @@ COPY gcc_builder.sh /build
 
 RUN git clone git://gcc.gnu.org/git/gcc.git -b master /build/gcc --depth=1
 
-CMD bash /build/gcc_builder.sh aarch64-maestro-linux-gnu master | ts '[%Y-%m-%d %H:%M:%S]'
+CMD bash /build/gcc_builder.sh aarch64-triton-linux-gnu master | ts '[%Y-%m-%d %H:%M:%S]'
